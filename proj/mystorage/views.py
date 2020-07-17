@@ -1,14 +1,22 @@
 from rest_framework import viewsets
-from mystorage.models import Essay
-from mystorage.serializers import EssaySerializer
+from mystorage.models import Essay, Lead
+from mystorage.serializers import EssaySerializer, LeadSerializer
 from rest_framework.filters import SearchFilter
+from rest_framework import generics
 
-from rest_framework.renderers import TemplateHTMLRenderer
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from django.shortcuts import get_object_or_404
+#from rest_framework.settings import api_settings
+#from rest_framework_csv import renderers as r
+#->csv를 위한 renderers
 
-# Create your views here.
+class LeadViewSet(viewsets.ModelViewSet):
+    queryset = Lead.objects.all()
+    serializer_class = LeadSerializer
+    search_fields = ('name', 'email', 'message')
+
+    def perform_create(self, serializer):
+        serializer.save()
+    # fake data
+
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Essay.objects.all()
     serializer_class = EssaySerializer
@@ -26,28 +34,3 @@ class PostViewSet(viewsets.ModelViewSet):
         else:
             qs = qs.none()
         return qs
-
-class ProfileList(APIView):
-    renderer_classes = [TemplateHTMLRenderer]
-    template_name = 'profile_list.html'
-
-    def get(self, request):
-        queryset = Essay.objects.all()
-        return Response({'profiles': queryset})
-
-class ProfileDetail(APIView):
-    renderer_classes = [TemplateHTMLRenderer]
-    template_name = 'profile_detail.html'
-
-    def get(self, request, pk):
-        profile = get_object_or_404(Profile, pk=pk)
-        serializer = ProfileSerializer(profile)
-        return Response({'serializer': serializer, 'profile': profile})
-
-    def post(self, request, pk):
-        profile = get_object_or_404(Profile, pk=pk)
-        serializer = ProfileSerializer(profile, data=request.data)
-        if not serializer.is_valid():
-            return Response({'serializer': serializer, 'profile': profile})
-        serializer.save()
-        return redirect('profile-list')

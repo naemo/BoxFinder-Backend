@@ -4,8 +4,9 @@ from rest_framework.routers import DefaultRouter
 from mystorage import views
 
 router = DefaultRouter()
+router.register('lead', views.LeadViewSet)
 router.register('essay', views.PostViewSet)
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('api/', include(router.urls)),
 ]

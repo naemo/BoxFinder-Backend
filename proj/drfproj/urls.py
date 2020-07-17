@@ -6,5 +6,6 @@ from rest_framework import urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mystorage.urls')),
+    path('', include('frontend.urls')),
     path('api-auth/', include('rest_framework.urls'))
 ]

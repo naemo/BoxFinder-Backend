@@ -1,4 +1,4 @@
-from .models import Essay
+from .models import Essay, Lead
 from rest_framework import serializers
 
 class EssaySerializer(serializers.ModelSerializer):
@@ -6,6 +6,12 @@ class EssaySerializer(serializers.ModelSerializer):
     class Meta:
         model = Essay
         fields = ('pk', 'title', 'body', 'author_name')
+
+class LeadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Lead
+        fields = ('id', 'name', 'email', 'message')
+    #fake data
 
 class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField(

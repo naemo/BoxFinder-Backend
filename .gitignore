@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/django,venv
-# Edit at https://www.toptal.com/developers/gitignore?templates=django,venv
+# Created by https://www.toptal.com/developers/gitignore/api/react,django
+# Edit at https://www.toptal.com/developers/gitignore?templates=react,django
 
 ### Django ###
 *.log
@@ -144,16 +144,19 @@ dmypy.json
 # pytype static type analyzer
 .pytype/
 
-### venv ###
-# Virtualenv
-# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
-[Bb]in
-[Ii]nclude
-[Ll]ib
-[Ll]ib64
-[Ll]ocal
-[Ss]cripts
-pyvenv.cfg
-pip-selfcheck.json
+### react ###
+.DS_*
+logs
+**/*.backup.*
+**/*.back.*
 
-# End of https://www.toptal.com/developers/gitignore/api/django,venv
+node_modules
+bower_components
+
+*.sublime*
+
+psd
+thumb
+sketch
+
+# End of https://www.toptal.com/developers/gitignore/api/react,django
