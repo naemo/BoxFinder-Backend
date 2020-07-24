@@ -1,4 +1,4 @@
-from .models import Essay, Lead
+from .models import Essay, Lead, UserData
 from rest_framework import serializers
 
 class EssaySerializer(serializers.ModelSerializer):
@@ -13,7 +13,7 @@ class LeadSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'email', 'message')
     #fake data
 
-class LoginSerializer(serializers.Serializer):
+class LoginSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(
         max_length=100,
         style={'placeholder': 'Email', 'autofocus': True}
@@ -22,4 +22,6 @@ class LoginSerializer(serializers.Serializer):
         max_length=100,
         style={'input_type': 'password', 'placeholder': 'Password'}
     )
-    remember_me = serializers.BooleanField()
+    class Meta:
+        model = UserData
+        fields = ('pk','email', 'password', 'remember_me')

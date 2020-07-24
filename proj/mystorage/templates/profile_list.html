@@ -8,10 +8,13 @@
 </head>
 <body>
     {% load rest_framework %}
-    <h1>Profiles</h1>
+    <h1>HTML CHECK</h1>
     <ul>
         {% for profile in profiles %}
-        <li>{{ profile.name }}</li>
+        <li>{{ profile.pk }}</li>
+        <li>{{ profile.email }}</li>
+        <li>{{ profile.password }}</li>
+        <br>
         {% endfor %}
     </ul>
 </body>
