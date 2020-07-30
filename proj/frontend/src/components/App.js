@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("api/lead")
+    fetch("api/user/")
       .then(response => {
         if (response.status > 400) {
           return this.setState(() => {
@@ -28,7 +28,10 @@ class App extends Component {
             loaded: true
           };
         });
-      });
+      })
+      .catch(
+        error => console.log(error.message)
+      )
   }
 
   render() {
@@ -36,8 +39,8 @@ class App extends Component {
       <ul>
         {this.state.data.map(contact => {
           return (
-            <li key={contact.id}>
-              {contact.name} - {contact.email}
+            <li key={contact.pk}>
+              {contact.email} - {contact.password}
             </li>
           );
         })}

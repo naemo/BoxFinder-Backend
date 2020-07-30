@@ -40,6 +40,7 @@ class PostViewSet(viewsets.ModelViewSet):
         else:
             qs = qs.none()
         return qs
+    # 글쓰기 관련 데이터에 대한 view입니다.
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = UserData.objects.all()
@@ -57,9 +58,3 @@ class UserList(APIView):
         queryset = UserData.objects.all()
         return Response({'profiles': queryset})
     # 회원 정보가 html에 뜨는지 확인용
-
-class Login(APIView):
-    renderer_classes = [TemplateHTMLRenderer]
-    template_name = 'Login.html'
-    serializer_class = LoginSerializer
-    # 로그인 화면
