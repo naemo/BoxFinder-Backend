@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'rest_auth.registration',
     'mystorage',
-    'frontend',
 ]
 
 MIDDLEWARE = [
@@ -136,4 +135,5 @@ REST_FRAMEWORK = {
     ),
 }
 '''
+CORS_ORIGIN_ALLOW_ALL = True
 SITE_ID=1

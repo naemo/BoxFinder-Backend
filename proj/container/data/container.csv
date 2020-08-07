@@ -1,4 +1,4 @@
-,Harbor,Date,isKorean,Full_10,Empty_10,Full_20,Empty_20,Full_40,Empty_40,Full_other,Empty_other,R/T
+pk,Harbor,Date,isKorean,Full_10,Empty_10,Full_20,Empty_20,Full_40,Empty_40,Full_other,Empty_other,R/T
 0,Busan,2018-01-01,TRUE,165,273,61282,15753,59612,13995,147,67,3862353
 1,Busan,2018-01-01,FALSE,161,133,338680,74981,441504,83605,2879,705,26086071
 2,Busan,2018-02-01,TRUE,131,180,58404,14942,55317,12530,89,18,3507757

@@ -10,7 +10,7 @@ router.register('user', views.UserViewSet) #
 
 urlpatterns = [
     path('api/', include(router.urls)), # api 확인용!
-    path('htmltolist/', views.UserList.as_view()), # html 회원 정보 확인용
+    path('', views.UserList.as_view()), # html 회원 정보 확인용
     path('rest-auth/', include('rest_auth.urls')), 
     path('rest-auth/registration', include('rest_auth.registration.urls')),
 ]
