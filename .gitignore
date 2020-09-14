@@ -163,4 +163,4 @@ sketch
 
 .migrations
 /myvenv
-proj/
+proj/package-lock.json
